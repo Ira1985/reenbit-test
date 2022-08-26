@@ -6,7 +6,7 @@ class Logo extends Component {
         super();
     }
     render() {
-        return <img src='../../../assets/images/stich.jpg' className='logo' alt="logo" />
+        return <img src='../../../assets/icon/search.svg' className='logo' alt="logo" />
     }
 }
 

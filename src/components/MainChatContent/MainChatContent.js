@@ -18,7 +18,9 @@ class MainChatContent extends Component{
                 <div className='main-chat-content__chat-list'>
                     <HeadChatList/>
                 </div>
-                <div className='main-chat-content__conversation'></div>
+                <div className='main-chat-content__conversation'>
+                    ABC
+                </div>
             </div>
         )
     }
