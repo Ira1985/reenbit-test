@@ -6,6 +6,12 @@
   &__chat-list {
     width: calc(25% - 1px);
     border-right: 1px solid #4a4a4a;
+
+    &__h2 {
+      font-weight: normal;
+      color: aqua;
+      padding: 0 20px;
+    }
   }
 
   &__conversation {

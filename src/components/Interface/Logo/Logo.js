@@ -2,11 +2,12 @@ import React, {Component} from "react";
 import './logo.scss';
 
 class Logo extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
     }
     render() {
-        return <img src='https://i.pinimg.com/236x/09/27/d2/0927d2faa1df965115a0df12b8333f5d.jpg' className='logo' alt="logo" />
+        const { imageUrl } = this.props;
+        return <img src={imageUrl ? imageUrl : 'https://i0.wp.com/www.artstation.com/assets/default_avatar.jpg'} className='logo' alt="logo" />
     }
 }
 
