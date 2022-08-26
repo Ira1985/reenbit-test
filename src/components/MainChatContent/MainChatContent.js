@@ -22,7 +22,7 @@ class MainChatContent extends Component{
                     <ChatList/>
                 </div>
                 <div className='main-chat-content__conversation'>
-                    ABC-1234
+                    ABC1234
                 </div>
             </div>
         )
