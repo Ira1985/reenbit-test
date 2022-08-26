@@ -19,7 +19,7 @@ class MainChatContent extends Component{
                     <HeadChatList/>
                 </div>
                 <div className='main-chat-content__conversation'>
-                    ABC123
+                    ABC-123
                 </div>
             </div>
         )
