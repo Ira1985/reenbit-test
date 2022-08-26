@@ -1,0 +1,14 @@
+.main-chat-content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  &__chat-list {
+    width: calc(25% - 1px);
+    border-right: 1px solid #4a4a4a;
+  }
+
+  &__conversation {
+    width: 75%;
+  }
+}

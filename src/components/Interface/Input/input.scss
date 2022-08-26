@@ -1,0 +1,22 @@
+.input {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    background: url('../../../assets/icon/search.svg')center / contain no-repeat;
+  }
+
+  &__body {
+    padding: 10px 30px;
+    border: 1px solid #a3a3ac;
+    border-radius: 20px;
+    width: 100%;
+  }
+}
