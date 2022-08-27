@@ -7,9 +7,9 @@ class Chat extends Component{
         super(props);
     }
     render() {
-        const { chat } = this.props
+        const { chat, click, checkedChatId } = this.props;
         return (
-            <div className='chat'>
+            <div className={`chat${checkedChatId === chat.id ? ' checked' : ''}`} onClick={() => click(chat.id)}>
                 <Logo
                     imageUrl={chat.avatar}
                 />

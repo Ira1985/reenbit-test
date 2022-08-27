@@ -4,10 +4,11 @@ import Chat from "../Chat/Chat";
 import {contacts} from "../../constants/chatList";
 
 class ChatList extends Component{
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             contacts: [],
+            checkedChatId: 0,
         }
     }
     componentDidMount() {
@@ -15,11 +16,19 @@ class ChatList extends Component{
             contacts
         })
     }
+    checkChat(id) {
+        this.setState({
+            checkedChatId: id
+        })
+        const { checkChat } = this.props;
+        checkChat(id);
+    }
     render() {
-        const { contacts } = this.state;
+        const { contacts, checkedChatId } = this.state;
+
         return (
             <div className='chat-list'>
-                {contacts.map(contact => <Chat chat={contact} key={contact.id}/>)}
+                {contacts.map(contact => <Chat chat={contact} checkedChatId={checkedChatId} key={contact.id} click={(id) => this.checkChat(id)}/>)}
             </div>
         )
     }

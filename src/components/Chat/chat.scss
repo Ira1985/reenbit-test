@@ -1,11 +1,15 @@
 .chat {
   width: calc(100% - 20px);
   padding: 10px;
-  border-bottom: 1px solid #4a4a4a;
+  border-bottom: 1px solid #bdbdbd;
   display: flex;
   align-items: center;
 
   &:hover {
+    background-color: #bdbdbd;
+  }
+
+  &.checked {
     background-color: #bdbdbd;
   }
 
