@@ -1,20 +1,13 @@
 import React, {Component} from "react";
 import './chatList.scss';
 import Chat from "../Chat/Chat";
-import {contacts} from "../../constants/chatList";
 
 class ChatList extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            contacts: [],
             checkedChatId: 0,
         }
-    }
-    componentDidMount() {
-        this.setState({
-            contacts
-        })
     }
     checkChat(id) {
         this.setState({
@@ -24,7 +17,8 @@ class ChatList extends Component{
         checkChat(id);
     }
     render() {
-        const { contacts, checkedChatId } = this.state;
+        const { checkedChatId } = this.state;
+        const { contacts } = this.props;
 
         return (
             <div className='chat-list'>

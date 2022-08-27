@@ -2,111 +2,111 @@ export const contacts = [
     {
         id: 1,
         firstName: 'Стич',
-        lastName: '',
+        lastName: '1',
         avatar: 'https://i.pinimg.com/236x/09/27/d2/0927d2faa1df965115a0df12b8333f5d.jpg',
-        lastMessageDate: new Date(2022, 7, 23, 14, 31, 33),
+        lastMessageDate: new Date(2022, 0, 23, 14, 31, 33),
         lastMessageText: 'Abra abra cadabra'
     },
     {
         id: 2,
         firstName: 'Стич',
-        lastName: '',
+        lastName: '2',
         avatar: 'https://i.pinimg.com/236x/09/27/d2/0927d2faa1df965115a0df12b8333f5d.jpg',
-        lastMessageDate: new Date(2022, 7, 23, 14, 31, 33),
+        lastMessageDate: new Date(2022, 2, 18, 14, 31, 33),
         lastMessageText: 'Abra abra cadabra'
     },
     {
         id: 3,
         firstName: 'Стич',
-        lastName: '',
+        lastName: '3',
         avatar: 'https://i.pinimg.com/236x/09/27/d2/0927d2faa1df965115a0df12b8333f5d.jpg',
-        lastMessageDate: new Date(2022, 7, 23, 14, 31, 33),
+        lastMessageDate: new Date(2022, 3, 15, 14, 31, 33),
         lastMessageText: 'Abra abra cadabra Abra abra cadabra Abra abra cadabra Abra abra cadabra Abra abra cadabra'
     },
     {
         id: 4,
         firstName: 'Стич',
-        lastName: '',
+        lastName: '4',
         avatar: 'https://i.pinimg.com/236x/09/27/d2/0927d2faa1df965115a0df12b8333f5d.jpg',
-        lastMessageDate: new Date(2022, 7, 23, 14, 31, 33),
+        lastMessageDate: new Date(2022, 6, 27, 14, 31, 33),
         lastMessageText: 'Abra abra cadabra'
     },
     {
         id: 5,
         firstName: 'Стич',
-        lastName: '',
+        lastName: '5',
         avatar: 'https://i.pinimg.com/236x/09/27/d2/0927d2faa1df965115a0df12b8333f5d.jpg',
-        lastMessageDate: new Date(2022, 7, 23, 14, 31, 33),
+        lastMessageDate: new Date(2022, 7, 14, 14, 31, 33),
         lastMessageText: 'Abra abra cadabra'
     },
     {
         id: 6,
         firstName: 'Стич',
-        lastName: '',
+        lastName: '6',
         avatar: 'https://i.pinimg.com/236x/09/27/d2/0927d2faa1df965115a0df12b8333f5d.jpg',
-        lastMessageDate: new Date(2022, 7, 23, 14, 31, 33),
+        lastMessageDate: new Date(2022, 4, 21, 14, 31, 33),
         lastMessageText: 'Abra abra cadabra'
     },
     {
         id: 7,
         firstName: 'Стич',
-        lastName: '',
+        lastName: '7',
         avatar: 'https://i.pinimg.com/236x/09/27/d2/0927d2faa1df965115a0df12b8333f5d.jpg',
-        lastMessageDate: new Date(2022, 7, 23, 14, 31, 33),
+        lastMessageDate: new Date(2022, 1, 23, 14, 31, 33),
         lastMessageText: 'Abra abra cadabra'
     },
     {
         id: 8,
         firstName: 'Стич',
-        lastName: '',
+        lastName: '8',
         avatar: 'https://i.pinimg.com/236x/09/27/d2/0927d2faa1df965115a0df12b8333f5d.jpg',
-        lastMessageDate: new Date(2022, 7, 23, 14, 31, 33),
+        lastMessageDate: new Date(2022, 5, 13, 14, 31, 33),
         lastMessageText: 'Abra abra cadabra'
     },
     {
         id: 9,
         firstName: 'Стич',
-        lastName: '',
+        lastName: '9',
         avatar: 'https://i.pinimg.com/236x/09/27/d2/0927d2faa1df965115a0df12b8333f5d.jpg',
-        lastMessageDate: new Date(2022, 7, 23, 14, 31, 33),
+        lastMessageDate: new Date(2022, 4, 23, 14, 31, 33),
         lastMessageText: 'Abra abra cadabra'
     },
     {
         id: 10,
         firstName: 'Стич',
-        lastName: '',
+        lastName: '10',
         avatar: 'https://i.pinimg.com/236x/09/27/d2/0927d2faa1df965115a0df12b8333f5d.jpg',
-        lastMessageDate: new Date(2022, 7, 23, 14, 31, 33),
+        lastMessageDate: new Date(2022, 3, 23, 14, 31, 33),
         lastMessageText: 'Abra abra cadabra'
     },
     {
         id: 11,
         firstName: 'Стич',
-        lastName: '',
+        lastName: '11',
         avatar: 'https://i.pinimg.com/236x/09/27/d2/0927d2faa1df965115a0df12b8333f5d.jpg',
-        lastMessageDate: new Date(2022, 7, 23, 14, 31, 33),
+        lastMessageDate: new Date(2022, 5, 23, 14, 31, 33),
         lastMessageText: 'Abra abra cadabra'
     },
     {
         id: 12,
         firstName: 'Стич',
-        lastName: '',
+        lastName: '12',
         avatar: 'https://i.pinimg.com/236x/09/27/d2/0927d2faa1df965115a0df12b8333f5d.jpg',
-        lastMessageDate: new Date(2022, 7, 23, 14, 31, 33),
+        lastMessageDate: new Date(2022, 1, 1, 14, 31, 33),
         lastMessageText: 'Abra abra cadabra'
     },
     {
         id: 13,
         firstName: 'Стич',
-        lastName: '',
+        lastName: '13',
         avatar: 'https://i.pinimg.com/236x/09/27/d2/0927d2faa1df965115a0df12b8333f5d.jpg',
-        lastMessageDate: new Date(2022, 7, 23, 14, 31, 33),
+        lastMessageDate: new Date(2022, 7, 25, 14, 31, 33),
         lastMessageText: 'Abra abra cadabra'
     },
     {
         id: 14,
         firstName: 'Стич',
-        lastName: '',
+        lastName: '14',
         avatar: 'https://i.pinimg.com/236x/09/27/d2/0927d2faa1df965115a0df12b8333f5d.jpg',
         lastMessageDate: new Date(2022, 7, 23, 14, 31, 33),
         lastMessageText: 'Abra abra cadabra'
@@ -114,9 +114,9 @@ export const contacts = [
     {
         id: 15,
         firstName: 'Стич',
-        lastName: '',
+        lastName: '15',
         avatar: 'https://i.pinimg.com/236x/09/27/d2/0927d2faa1df965115a0df12b8333f5d.jpg',
-        lastMessageDate: new Date(2022, 7, 23, 14, 31, 33),
+        lastMessageDate: new Date(2022, 6, 23, 14, 31, 33),
         lastMessageText: 'Abra abra cadabra'
     }
 ]
