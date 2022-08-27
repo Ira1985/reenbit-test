@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/reenbit-test/static/css/main.4fb6f920.css",
-    "main.js": "/reenbit-test/static/js/main.ffaded59.js",
+    "main.css": "/reenbit-test/static/css/main.f38fa3f1.css",
+    "main.js": "/reenbit-test/static/js/main.e2f43fdc.js",
     "static/js/75.f64a399f.chunk.js": "/reenbit-test/static/js/75.f64a399f.chunk.js",
+    "static/media/send.svg": "/reenbit-test/static/media/send.a447137912137b8deb98.svg",
     "index.html": "/reenbit-test/index.html",
     "static/media/search.svg": "/reenbit-test/static/media/search.8c6cb307b6d77896dbc8.svg",
-    "main.4fb6f920.css.map": "/reenbit-test/static/css/main.4fb6f920.css.map",
-    "main.ffaded59.js.map": "/reenbit-test/static/js/main.ffaded59.js.map",
+    "main.f38fa3f1.css.map": "/reenbit-test/static/css/main.f38fa3f1.css.map",
+    "main.e2f43fdc.js.map": "/reenbit-test/static/js/main.e2f43fdc.js.map",
     "75.f64a399f.chunk.js.map": "/reenbit-test/static/js/75.f64a399f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4fb6f920.css",
-    "static/js/main.ffaded59.js"
+    "static/css/main.f38fa3f1.css",
+    "static/js/main.e2f43fdc.js"
   ]
 }
