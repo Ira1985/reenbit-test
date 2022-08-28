@@ -31,7 +31,7 @@ class Conversation extends Component{
         })
     }
 
-    createNewMessage(text, isOwner) {
+    saveNewMessage(text, isOwner) {
         const {messages} = this.state;
         let newMessagesList = messages;
         const message = {
@@ -50,12 +50,12 @@ class Conversation extends Component{
         await fetch('https://api.chucknorris.io/jokes/random')
             .then(response => response.json())
             .then(json => {
-                setTimeout((text, isOwner) => this.createNewMessage(text, isOwner), 10000, json.value, false);
+                setTimeout((text, isOwner) => this.saveNewMessage(text, isOwner), 10000, json.value, false);
             });
     }
 
     sendMessage(messageText) {
-        this.createNewMessage(messageText, true);
+        this.saveNewMessage(messageText, true);
         this.getAnswer();
     }
 
