@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import './conversation.scss';
 import Logo from "../Interface/Logo/Logo";
 import Textarea from "../Interface/Textarea/Textarea";
+import Message from "../Message/Message";
 import {messages} from "../../constants/messages";
 
 class Conversation extends Component{
@@ -30,6 +31,34 @@ class Conversation extends Component{
         })
     }
 
+    createNewMessage(text, isOwner) {
+        const {messages} = this.state;
+        let newMessagesList = messages;
+        const message = {
+            id: messages.length + 1,
+            owner: isOwner,
+            message: text,
+            date: new Date(),
+        };
+        newMessagesList.push(message);
+        this.setState({
+            messages: newMessagesList,
+        });
+    }
+
+    async getAnswer() {
+        await fetch('https://api.chucknorris.io/jokes/random')
+            .then(response => response.json())
+            .then(json => {
+                setTimeout((text, isOwner) => this.createNewMessage(text, isOwner), 10000, json.value, false);
+            });
+    }
+
+    sendMessage(messageText) {
+        this.createNewMessage(messageText, true);
+        this.getAnswer();
+    }
+
     render() {
         const {chat} = this.props;
         const {messages} = this.state;
@@ -40,14 +69,13 @@ class Conversation extends Component{
                     <h4>{`${chat.firstName} ${chat.lastName}`}</h4>
                 </header>
                 <main className='conversation-main'>
-                    {messages.map(message => <p>{message.message}</p>)}
+                    {messages.map(message => <Message key={message.id} avatar={chat.avatar} message={message}/>)}
                 </main>
                 <footer className='conversation-footer'>
                     <Textarea
                         name='message'
-                        value={this.value}
                         labelText='Type your message'
-                        onChange={this.handleText}
+                        sendMessage={(value) => this.sendMessage(value)}
                     />
                 </footer>
             </div>

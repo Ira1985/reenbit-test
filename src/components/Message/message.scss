@@ -1,0 +1,32 @@
+.message {
+  width: calc(100% - 20px);
+  padding: 10px;
+  display: flex;
+
+  &.my {
+    justify-content: flex-end;
+
+    .message-time {
+      justify-content: flex-end;
+    }
+  }
+
+  &-block {
+    border-radius: 40px;
+    background-color: midnightblue;
+    padding: 10px;
+    margin-left: 5px;
+    color: #fff;
+
+    &.my {
+      background-color: #bdbdbd;
+      align-self: flex-end;
+    }
+  }
+  &-time {
+    font-size: 12px;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 10px;
+  }
+ }

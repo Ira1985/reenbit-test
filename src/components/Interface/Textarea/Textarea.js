@@ -4,9 +4,26 @@ import './textarea.scss';
 class Textarea extends Component{
     constructor(props) {
         super(props);
+        this.state = {
+            value: ''
+        }
+    }
+    click() {
+        const {sendMessage} = this.props;
+        const {value} = this.state;
+        sendMessage(value);
+        this.setState({
+            value: ''
+        })
+    }
+    onChange(e) {
+        this.setState({
+            value: e.target.value
+        })
     }
     render() {
-        const {value, name, labelText, type, onChange} = this.props
+        const {name, labelText} = this.props;
+        const {value} = this.state;
         return (
             <div className='textarea'>
                 <textarea
@@ -15,8 +32,9 @@ class Textarea extends Component{
                     name={name}
                     placeholder={labelText}
                     value={value}
-                    onChange={(e) => onChange(e)}
+                    onChange={(e) => this.onChange(e)}
                 />
+                <button className='textarea__button' onClick={() => this.click()}/>
             </div>
         )
     }

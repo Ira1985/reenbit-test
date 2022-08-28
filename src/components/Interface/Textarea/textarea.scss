@@ -3,14 +3,20 @@
   display: flex;
   justify-content: center;
 
-  &::before {
-    content: "";
-    position: absolute;
-    right: 10px;
-    top: 0;
-    bottom: 0;
-    width: 20px;
-    background: url('../../../assets/icon/send.svg')center / contain no-repeat;
+  &__button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      position: absolute;
+      right: 15px;
+      top: 0;
+      bottom: 0;
+      width: 20px;
+      background: url('../../../assets/icon/send.svg')center / contain no-repeat;
+    }
   }
 
   &__body {

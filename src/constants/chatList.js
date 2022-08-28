@@ -81,11 +81,11 @@ export const contacts = [
     },
     {
         id: 11,
-        firstName: 'Стич',
+        firstName: 'Стіч',
         lastName: '11',
         avatar: 'https://i.pinimg.com/236x/09/27/d2/0927d2faa1df965115a0df12b8333f5d.jpg',
         lastMessageDate: new Date(2022, 5, 23, 14, 31, 33),
-        lastMessageText: 'Abra abra cadabra'
+        lastMessageText: 'Привіт Стіч 11'
     },
     {
         id: 12,
