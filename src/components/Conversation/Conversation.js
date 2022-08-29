@@ -3,7 +3,6 @@ import './conversation.scss';
 import Logo from "../Interface/Logo/Logo";
 import Textarea from "../Interface/Textarea/Textarea";
 import Message from "../Message/Message";
-import {messages} from "../../constants/messages";
 
 class Conversation extends Component{
     constructor(props) {
@@ -24,33 +23,40 @@ class Conversation extends Component{
     }
 
     findCurrentConversation() {
-        const {chat} = this.props;
+        const {chat, messages} = this.props;
         let message = messages.find(message => message.id === chat?.id);
         this.setState({
             messages: message ? message.message : []
         })
     }
 
-    saveNewMessage(text, isOwner) {
+    saveNewMessage(text, isOwner, prevChatId) {
         const {messages} = this.state;
-        let newMessagesList = messages;
+        const {changeChat, chat} = this.props;
+        let newMessagesList = messages.slice();
         const message = {
             id: messages.length + 1,
             owner: isOwner,
             message: text,
             date: new Date(),
         };
-        newMessagesList.push(message);
-        this.setState({
-            messages: newMessagesList,
-        });
+        if(!prevChatId || prevChatId === chat.id) {
+            newMessagesList.push(message);
+            this.setState({
+                messages: newMessagesList,
+            });
+        }
+        changeChat(message, prevChatId);
     }
 
     async getAnswer() {
+        const {chat} = this.props;
         await fetch('https://api.chucknorris.io/jokes/random')
             .then(response => response.json())
             .then(json => {
-                setTimeout((text, isOwner) => this.saveNewMessage(text, isOwner), 10000, json.value, false);
+                setTimeout((text, isOwner, prevChat) => {
+                    this.saveNewMessage(text, isOwner, prevChat);
+                }, 10000, json.value, false, chat.id);
             });
     }
 

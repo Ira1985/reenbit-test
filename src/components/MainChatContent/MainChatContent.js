@@ -4,22 +4,32 @@ import HeadChatList from "../HeadChatList/HeadChatList";
 import ChatList from "../ChatList/ChatList";
 import Conversation from "../Conversation/Conversation";
 import {contacts} from "../../constants/chatList";
+import {messages} from "../../constants/messages";
 
 class MainChatContent extends Component{
     constructor() {
         super();
         this.state = {
             contacts: [],
+            allUsersMessages: [],
             chat: null,
         }
     }
     componentDidMount() {
-        this.setState({
-            contacts: this.sortChatsByDate(contacts),
+        this.setState(() => {
+            let newState = {};
+            if (localStorage.getItem('contacts')) {
+                newState.contacts = this.sortChatsByDate(JSON.parse(localStorage.getItem('contacts')))
+            } else {
+                newState.contacts = this.sortChatsByDate(contacts)
+            }
+            if (localStorage.getItem('messages')) {
+                newState.allUsersMessages = JSON.parse(localStorage.getItem('messages'))
+            } else {
+                newState.allUsersMessages = messages
+            }
+            return newState;
         })
-    }
-    handleText() {
-        console.log('aaaaaaaaaaaaaaaaaaa');
     }
     checkChat(id) {
         const chat = contacts.find(contact => contact.id === id);
@@ -32,8 +42,47 @@ class MainChatContent extends Component{
             return new Date(contacts_2.lastMessageDate) - new Date(contacts_1.lastMessageDate);
         })
     }
-    render() {
+    changeChatsList(message, prevChatId) {
         const { chat, contacts } = this.state;
+        let newContacts = contacts.slice();
+        let newChat = null;
+        let index_contact = newContacts.findIndex(contact => {
+            newChat = {...contact};
+            if (prevChatId) {
+                return contact.id === prevChatId
+            }
+            return contact.id === chat.id
+        });
+        newChat.lastMessageText = message.message;
+        newChat.lastMessageDate = message.date;
+        newContacts.splice(index_contact, 1, newChat);
+        newContacts = this.sortChatsByDate(newContacts);
+        this.setState({
+            contacts: newContacts
+        })
+        localStorage.setItem('contacts', JSON.stringify(newContacts));
+    }
+    changeMessagesList(message, prevChatId) {
+        const { chat, allUsersMessages } = this.state;
+        let newMessages = allUsersMessages.slice();
+        let newMessage = null;
+        let index_message = newMessages.findIndex(message => {
+            newMessage = {...message};
+            if (prevChatId) {
+                return message.id === prevChatId
+            }
+            return message.id === chat.id
+        });
+        newMessage.message.push(message);
+        newMessages.splice(index_message, 1, newMessage);
+        localStorage.setItem('messages', JSON.stringify(allUsersMessages));
+    }
+    changeChat(message, prevChatId) {
+        this.changeChatsList(message, prevChatId);
+        this.changeMessagesList(message, prevChatId);
+    }
+    render() {
+        const { chat, contacts, allUsersMessages } = this.state;
         return (
             <div className='main-chat-content'>
                 <div className='main-chat-content__chat-list'>
@@ -42,7 +91,7 @@ class MainChatContent extends Component{
                     <ChatList contacts={contacts} checkChat={(id) => this.checkChat(id)}/>
                 </div>
                 <div className='main-chat-content__conversation'>
-                    {chat ? <Conversation chat={chat}/> : <></>}
+                    {chat ? <Conversation changeChat={(message, prevChatId) => this.changeChat(message, prevChatId)} chat={chat} messages={allUsersMessages}/> : <></>}
                 </div>
             </div>
         )

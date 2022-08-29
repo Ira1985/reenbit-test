@@ -17,13 +17,13 @@ class Chat extends Component{
                 <div className='chat__info'>
                     <div className='chat__info-text'>
                         <p className='chat__info-text-name'>{chat.firstName} {chat.lastName}</p>
-                        <span className='chat__info-text-message'>{chat.lastMessageText}</span>
+                        <span className='chat__info-text-message'>{chat.lastMessageText.length < 99 ? chat.lastMessageText : `${chat.lastMessageText.slice(0, 99)}........`}</span>
                     </div>
                     <div className='chat__info-data'>
                         <span>
-                            {`${chat.lastMessageDate.toLocaleString('default', { month: 'long' }).slice(0, 3)}
-                            ${chat.lastMessageDate.getDate()},
-                            ${chat.lastMessageDate.getFullYear()}`}
+                            {`${new Date(chat.lastMessageDate).toLocaleString('default', { month: 'long' }).slice(0, 3)}
+                            ${new Date(chat.lastMessageDate).getDate()},
+                            ${new Date(chat.lastMessageDate).getFullYear()}`}
                         </span>
                     </div>
                 </div>

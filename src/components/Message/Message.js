@@ -17,10 +17,10 @@ class Message extends Component{
                     </div>
                     <div className='message-time'>
                         <span>
-                            {`${message.date.getDate()}`}/
-                            {`${message.date.getMonth() + 1}`}/
-                            {`${message.date.getFullYear()}`.slice(2)},
-                            {` ${message.date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}`}
+                            {`${new Date(message.date).getDate()}`}/
+                            {`${new Date(message.date).getMonth() + 1}`}/
+                            {`${new Date(message.date).getFullYear()}`.slice(2)},
+                            {` ${new Date(message.date).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}`}
                         </span>
                     </div>
                 </div>
