@@ -4,9 +4,20 @@ import './input.scss';
 class Input extends Component{
     constructor(props) {
         super(props);
+        this.state = {
+            value: ''
+        }
+    }
+    handleText(e) {
+        const {onChange} = this.props;
+        this.setState({
+            value: e.target.value,
+        })
+        onChange(e.target.value)
     }
     render() {
-        const {value, name, labelText, type, onChange} = this.props
+        const {name, labelText, type} = this.props;
+        const {value} = this.state;
         return (
             <div className='input'>
                 <input
@@ -16,7 +27,7 @@ class Input extends Component{
                     placeholder={labelText}
                     type={type}
                     value={value}
-                    onChange={(e) => onChange(e)}
+                    onChange={(e) => this.handleText(e)}
                 />
             </div>
         )

@@ -81,12 +81,23 @@ class MainChatContent extends Component{
         this.changeChatsList(message, prevChatId);
         this.changeMessagesList(message, prevChatId);
     }
+    searchContacts(value) {
+        const {contacts} = this.state;
+        let newContacts = contacts.slice();
+        newContacts = newContacts.filter(contact => {
+            const fullName = `${contact.firstName} ${contact.lastName}`;
+            return fullName.includes(value);
+        });
+        this.setState({
+            contacts: newContacts,
+        })
+    }
     render() {
         const { chat, contacts, allUsersMessages } = this.state;
         return (
             <div className='main-chat-content'>
                 <div className='main-chat-content__chat-list'>
-                    <HeadChatList/>
+                    <HeadChatList searchContacts={(value) => this.searchContacts(value)}/>
                     <h2 className='main-chat-content__chat-list__h2'>Chats</h2>
                     <ChatList contacts={contacts} checkChat={(id) => this.checkChat(id)}/>
                 </div>

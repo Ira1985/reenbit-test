@@ -4,10 +4,11 @@ import Input from "../Interface/Input/Input";
 import Logo from "../Interface/Logo/Logo";
 
 class HeadChatList extends Component{
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
     }
     render() {
+        const {searchContacts} = this.props
         return (
             <div className='head-chat-list'>
                 <Logo/>
@@ -16,7 +17,7 @@ class HeadChatList extends Component{
                     type='text'
                     value={this.value}
                     labelText='Search or start new chat'
-                    onChange={this.handleText}
+                    onChange={(value) => searchContacts(value)}
                 />
             </div>
         )
