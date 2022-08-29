@@ -21,12 +21,14 @@ class MainChatContent extends Component{
             if (localStorage.getItem('contacts')) {
                 newState.contacts = this.sortChatsByDate(JSON.parse(localStorage.getItem('contacts')))
             } else {
-                newState.contacts = this.sortChatsByDate(contacts)
+                newState.contacts = this.sortChatsByDate(contacts);
+                localStorage.setItem('contacts', JSON.stringify(contacts))
             }
             if (localStorage.getItem('messages')) {
                 newState.allUsersMessages = JSON.parse(localStorage.getItem('messages'))
             } else {
-                newState.allUsersMessages = messages
+                newState.allUsersMessages = messages;
+                localStorage.setItem('messages', JSON.stringify(messages))
             }
             return newState;
         })
@@ -42,9 +44,8 @@ class MainChatContent extends Component{
             return new Date(contacts_2.lastMessageDate) - new Date(contacts_1.lastMessageDate);
         })
     }
-    changeChatsList(message, prevChatId) {
-        const { chat, contacts } = this.state;
-        let newContacts = contacts.slice();
+    changeCurrentChatsList(newContacts, message, prevChatId) {
+        const { chat } = this.state;
         let newChat = null;
         let index_contact = newContacts.findIndex(contact => {
             newChat = {...contact};
@@ -56,25 +57,54 @@ class MainChatContent extends Component{
         newChat.lastMessageText = message.message;
         newChat.lastMessageDate = message.date;
         newContacts.splice(index_contact, 1, newChat);
+        return newContacts;
+    }
+    changeChatsList(message, prevChatId) {
+        const { contacts } = this.state;
+        let newContacts = contacts.slice();
+        let localContacts = JSON.parse(localStorage.getItem('contacts')).slice();
+        newContacts = this.changeCurrentChatsList(newContacts, message, prevChatId);
+        localContacts = this.changeCurrentChatsList(localContacts, message, prevChatId);
         newContacts = this.sortChatsByDate(newContacts);
         this.setState({
             contacts: newContacts
         })
-        localStorage.setItem('contacts', JSON.stringify(newContacts));
+        localStorage.setItem('contacts', JSON.stringify(localContacts));
     }
     changeMessagesList(message, prevChatId) {
         const { chat, allUsersMessages } = this.state;
         let newMessages = allUsersMessages.slice();
         let newMessage = null;
+        let chatId = null;
         let index_message = newMessages.findIndex(message => {
             newMessage = {...message};
             if (prevChatId) {
-                return message.id === prevChatId
+                chatId = prevChatId;
+                return message.id === prevChatId;
             }
-            return message.id === chat.id
+            chatId = chat.id;
+            return message.id === chat.id;
         });
-        newMessage.message.push(message);
-        newMessages.splice(index_message, 1, newMessage);
+        if (index_message === -1) {
+            newMessage = {
+                id: chatId,
+                message: [],
+            }
+            newMessage.message.push({
+                ...message,
+                id: newMessage.message.length + 1
+            });
+            newMessages.push(newMessage);
+            this.setState({
+                allUsersMessages: newMessages,
+            })
+        } else {
+            newMessage.message.push({
+                ...message,
+                id: newMessage.message.length + 1
+            });
+            newMessages.splice(index_message, 1, newMessage);
+        }
         localStorage.setItem('messages', JSON.stringify(allUsersMessages));
     }
     changeChat(message, prevChatId) {
@@ -82,8 +112,8 @@ class MainChatContent extends Component{
         this.changeMessagesList(message, prevChatId);
     }
     searchContacts(value) {
-        const {contacts} = this.state;
-        let newContacts = contacts.slice();
+        const localContacts = JSON.parse(localStorage.getItem('contacts')).slice();
+        let newContacts = localContacts.slice();
         newContacts = newContacts.filter(contact => {
             const fullName = `${contact.firstName} ${contact.lastName}`;
             return fullName.includes(value);
