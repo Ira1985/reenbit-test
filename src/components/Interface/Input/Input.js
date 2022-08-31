@@ -1,7 +1,14 @@
 import React, {Component} from "react";
+import PropTypes from "prop-types";
 import './input.scss';
 
 class Input extends Component{
+    static propTypes = {
+        name: PropTypes.string.isRequired,
+        type: PropTypes.string.isRequired,
+        labelText: PropTypes.string,
+        onChange: PropTypes.func.isRequired,
+    }
     constructor(props) {
         super(props);
         this.state = {

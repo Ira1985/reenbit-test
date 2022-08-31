@@ -1,7 +1,13 @@
 import React, {Component} from "react";
+import PropTypes from "prop-types";
 import './textarea.scss';
 
 class Textarea extends Component{
+    static propTypes = {
+        name: PropTypes.string.isRequired,
+        labelText: PropTypes.string,
+        sendMessage: PropTypes.func.isRequired,
+    }
     constructor(props) {
         super(props);
         this.state = {

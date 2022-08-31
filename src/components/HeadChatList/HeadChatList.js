@@ -1,9 +1,13 @@
 import React, {Component} from "react";
+import PropTypes from "prop-types";
 import './headChatList.scss';
 import Input from "../Interface/Input/Input";
 import Logo from "../Interface/Logo/Logo";
 
 class HeadChatList extends Component{
+    static propTypes = {
+        searchContacts: PropTypes.func.isRequired,
+    }
     constructor(props) {
         super(props);
     }

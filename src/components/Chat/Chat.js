@@ -1,8 +1,14 @@
 import React, {Component} from "react";
+import PropTypes from "prop-types";
 import './chat.scss';
 import Logo from "../Interface/Logo/Logo";
 
 class Chat extends Component{
+    static propTypes = {
+        chat: PropTypes.object.isRequired,
+        checkedChatId: PropTypes.number.isRequired,
+        click: PropTypes.func.isRequired,
+    }
     constructor(props) {
         super(props);
     }

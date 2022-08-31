@@ -1,8 +1,13 @@
 import React, {Component} from "react";
+import PropTypes from "prop-types";
 import './chatList.scss';
 import Chat from "../Chat/Chat";
 
 class ChatList extends Component{
+    static propTypes = {
+        contacts: PropTypes.array.isRequired,
+        checkChat: PropTypes.func.isRequired,
+    }
     constructor(props) {
         super(props);
         this.state = {

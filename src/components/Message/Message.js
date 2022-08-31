@@ -1,8 +1,13 @@
 import React, {Component} from "react";
+import PropTypes from "prop-types";
 import Logo from "../Interface/Logo/Logo";
 import './message.scss';
 
 class Message extends Component{
+    static propTypes = {
+        avatar: PropTypes.string.isRequired,
+        message: PropTypes.object.isRequired,
+    }
     constructor(props) {
         super(props);
     }

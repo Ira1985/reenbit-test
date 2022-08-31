@@ -1,10 +1,16 @@
 import React, {Component} from "react";
+import PropTypes from "prop-types";
 import './conversation.scss';
 import Logo from "../Interface/Logo/Logo";
 import Textarea from "../Interface/Textarea/Textarea";
 import Message from "../Message/Message";
 
 class Conversation extends Component{
+    static propTypes = {
+        chat: PropTypes.object.isRequired,
+        messages: PropTypes.array.isRequired,
+        changeChat: PropTypes.func.isRequired,
+    }
     constructor(props) {
         super(props);
         this.state = {
