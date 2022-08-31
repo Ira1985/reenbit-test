@@ -4,7 +4,7 @@ import './logo.scss';
 
 class Logo extends Component {
     static propTypes = {
-        imageUrl: PropTypes.string.isRequired,
+        imageUrl: PropTypes.string,
     }
     constructor(props) {
         super(props);
